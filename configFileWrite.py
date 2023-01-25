@@ -7,6 +7,7 @@ config.set('db', 'host', 'localhost')
 config.set('db', 'user', 'root')
 config.set('db', 'password', 'root')
 config.set('db', 'dbName', 'org')
+config.set('db', 'sqlQuery', r'C:\Users\Vivek\IdeaProjects\IngestionAndTransformation\resources\query.sql')
 
 config.add_section('bq')
 config.set('bq', 'credentials', '../resources/primordial-ship-367212-f38e484a8812.json')

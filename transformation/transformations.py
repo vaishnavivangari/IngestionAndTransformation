@@ -1,7 +1,6 @@
 import findspark
-from configFileReader import user, password
-from pyspark import StorageLevel
-from pyspark.sql.functions import col, collect_set, first, mean, sumDistinct, dense_rank, rank, percent_rank
+from configFileReader import user, password, result_file_path
+from pyspark.sql.functions import col, collect_set, dense_rank, rank, percent_rank
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import current_timestamp
 from pyspark.sql.window import Window
@@ -37,8 +36,6 @@ addColDf = empDF.withColumn("row_created_timestamp", current_timestamp())
 
 # Aggregate Function
 AggResult = empDF.select(collect_set("salary"))
-#addColDf.select(first("salary"))
-#addColDf.select(mean("salary"))
 
 # Window Function
 windowFun = Window.partitionBy("employee_id").orderBy("salary")
@@ -59,14 +56,10 @@ denseRankFun = rankDf.withColumn('salary_dense_rank',dense_rank().over(windowFun
 perRankFun = denseRankFun.withColumn('salary_per_rank',percent_rank().over(windowFun.orderBy(col('salary').desc())))\
     .select("employee_id","first_name","salary","department_id","row_created_timestamp","row_number","salary_rank","salary_dense_rank","salary_per_rank")
 
-# Joining employee and department dataframe
+# Joining perRankFun and department dataframe
 joinResultDf = perRankFun.join(deptDF, perRankFun.department_id == deptDF.department_id, "inner") \
     .select("employee_id","first_name","salary",perRankFun["department_id"],"row_created_timestamp",
             "row_number","salary_rank","salary_dense_rank","salary_per_rank",
             "department_name",deptDF["manager_id"])
-
-#joinResultDf.write.option("header", True) \
-#    .mode("overwrite").csv(r'C:\Users\Vivek\IdeaProjects\IngestionAndTransformation\resources\test1')
-
 joinResultDf.write.option("header", True) \
-    .mode("overwrite").csv(r'C:\Users\Vivek\IdeaProjects\IngestionAndTransformation\resources\FinalResult')
+    .mode("overwrite").csv(result_file_path)

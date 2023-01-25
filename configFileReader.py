@@ -7,6 +7,7 @@ host = config_obj.get('db', 'host')
 user = config_obj.get('db', 'user')
 password = config_obj.get('db', 'password')
 dbName = config_obj.get('db','dbName')
+sqlQuery = config_obj.get('db','sqlQuery')
 
 credentials = config_obj.get('bq', 'credentials')
 project_id = config_obj.get('bq','project_id')
