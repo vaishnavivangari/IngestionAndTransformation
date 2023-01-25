@@ -1,0 +1,8 @@
+employee_id,first_name,salary,department_id,row_created_timestamp,row_number,salary_rank,salary_dense_rank,salary_per_rank,department_name,manager_id
+202,Pat,40000,20,2023-01-25T08:12:59.587-05:00,1,1,1,0.0,Marketing,201
+201,Michael,30000,20,2023-01-25T08:12:59.587-05:00,1,1,1,0.0,Marketing,201
+203,Susan,50000,40,2023-01-25T08:12:59.587-05:00,1,1,1,0.0,Human Resources,203
+200,Jennifer,20000,10,2023-01-25T08:12:59.587-05:00,1,1,1,0.0,Administration,200
+199,Douglas,10000,50,2023-01-25T08:12:59.587-05:00,1,1,1,0.0,Shipping,121
+198,Donald,100,50,2023-01-25T08:12:59.587-05:00,1,1,1,0.0,Shipping,121
+204,Hermann,10000,70,2023-01-25T08:12:59.587-05:00,1,1,1,0.0,Public Relations,204
