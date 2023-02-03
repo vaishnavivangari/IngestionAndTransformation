@@ -24,7 +24,7 @@ def create_dataset(datasetId):
 
 
 # load local file into bigquery table
-def load_table_uri_autodetect_csv(dataFileFolder, tableId: str):
+def write_data_into_bigquery(dataFileFolder, tableId: str):
     global csvFile
     job_config = bigquery.LoadJobConfig(
         autodetect=True,
@@ -47,6 +47,4 @@ def load_table_uri_autodetect_csv(dataFileFolder, tableId: str):
 
 
 create_dataset(datasetId=dataset_id)
-load_table_uri_autodetect_csv(Path(result_file_path), table_id)
-
-
+write_data_into_bigquery(Path(result_file_path), table_id)

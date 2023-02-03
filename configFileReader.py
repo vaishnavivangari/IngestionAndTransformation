@@ -8,6 +8,7 @@ user = config_obj.get('db', 'user')
 password = config_obj.get('db', 'password')
 dbName = config_obj.get('db','dbName')
 sqlQuery = config_obj.get('db','sqlQuery')
+sqlQueryAfterTransformation = config_obj.get('db','sqlQueryAfterTransformation')
 
 credentials = config_obj.get('bq', 'credentials')
 project_id = config_obj.get('bq','project_id')
