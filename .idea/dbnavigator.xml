@@ -13,19 +13,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="6c0fd649-6b4e-4ffe-87f6-f0b767af5145">
-      <console name="Connection" type="STANDARD" schema="org" session="Main"><![CDATA[USE org;
-
-SELECT count(*) FROM employee;
-
-SELECT count(*) FROM department;
-
-SHOW GLOBAL VARIABLES LIKE 'local_infile';
-
-SHOW tables;
-
-select * from transformation_result;
-
-drop table transformation_result;]]></console>
+      <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
